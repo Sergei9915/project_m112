@@ -9,7 +9,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { Foundation } from "@expo/vector-icons";
 
-// import Home from "./src/screen/home/Home";
+// import Home from "./src/screen/home/Home"; (error)
 
 const DATA = {
   title: "Дисплей Apple iPhone 14 Pro Max з тачскріном",
