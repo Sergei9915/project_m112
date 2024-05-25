@@ -16,57 +16,65 @@ const Header = ({ onChangeText }) => {
     setInputVisible(!inputVisible);
   };
 
+  const isInput = inputVisible && (
+    <TextInput
+      style={styles.input}
+      onChangeText={onChangeText}
+      placeholder="Пошук..."
+      placeholderTextColor={"orange"}
+    />
+  );
+
   return (
     <View style={styles.container}>
-      {toggleInput && (
-        <TextInput
-          style={styles.input}
-          placeholder="Пошук..."
-          onChangeText={onChangeText}
-        />
-      )}
+      {isInput}
 
-      <CustomPress onPress={toggleModal}>
-        <Feather name="heart" size={24} color="black" />
-      </CustomPress>
+      <View style={styles.btnContainer}>
+        <CustomPress onPress={toggleModal}>
+          <Feather name="heart" size={24} color="#ff4500" />
+        </CustomPress>
+
+        <CustomPress onPress={toggleInput}>
+          <Feather name="search" size={24} color="#ff4500" />
+        </CustomPress>
+      </View>
 
       <CustomModal onPress={toggleModal} visible={modalVisible}>
         <Text style={styles.text}>Close Modal</Text>
       </CustomModal>
-
-      <CustomPress onPress={toggleInput}>
-        <Feather name="search" size={24} color="black" />
-      </CustomPress>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    height: 50,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
-    margin: 10,
-    gap: 5,
+    marginHorizontal: 5,
+  },
+
+  btnContainer: {
+    flexDirection: "row",
+    gap: 10,
+    marginLeft: 5,
   },
 
   input: {
     flex: 1,
-    borderRadius: 6,
+    borderRadius: 5,
+    borderColor: "orange",
     height: 40,
+    marginVertical: 12,
     padding: 10,
     borderWidth: 2,
-    opacity: 1,
-  },
-
-  inputHidden: {
-    opacity: 0,
   },
 
   text: {
     fontSize: 15,
-    padding: 15,
-    backgroundColor: "orange",
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
 

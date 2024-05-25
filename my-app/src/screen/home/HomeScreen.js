@@ -4,7 +4,7 @@ import ProductList from "../../components/product/ProductList";
 import Header from "../../components/Header";
 import DATA from "../../data/data";
 
-const Home = () => {
+const HomeScreen = () => {
   const [searchItem, setSearchItem] = useState("");
 
   const renderItems = useCallback(({ item }) => <ProductList item={item} />);
@@ -14,11 +14,15 @@ const Home = () => {
   });
 
   return (
-    <View style={{ backgroundColor: "#fff" }}>
+    <View style={{ backgroundColor: "#fff", flex: 1 }}>
       <Header onChangeText={setSearchItem} />
-      <FlatList data={filterItem} renderItem={renderItems} />
+      <FlatList
+        data={filterItem}
+        renderItem={renderItems}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };
 
-export default Home;
+export default HomeScreen;

@@ -62,7 +62,7 @@ const DATA = [
     image: require("../../assets/product/iPhone13ProMax.jpg"),
     title: "Дисплей Apple iPhone 13 Pro Max з тачскріном",
     price: "14 775.00грн.",
-    isNew: false,
+    isNew: true,
     characteristic:
       "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
   },
@@ -98,9 +98,8 @@ const DATA = [
     id: 11,
     image: require("../../assets/product/iPhone11Pro.jpg"),
     title: "Дисплей Apple iPhone 11 Pro з тачскріном",
-    price: "1 200.00грн.",
-    oldPrice: "2 000.00грн.",
-    isNew: true,
+    price: "2 000.00грн.",
+    isNew: false,
     characteristic:
       "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
   },
