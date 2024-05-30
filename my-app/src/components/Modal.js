@@ -5,9 +5,9 @@ const CustomModal = ({ onPress, visible, children }) => {
   return (
     <Modal
       visible={visible}
-      animationType="slide"
-      transparent={true}
       onRequestClose={onPress}
+      transparent={true}
+      animationType="slide"
     >
       <View style={styles.centeredView}>
         <Pressable onPress={onPress}>
@@ -29,18 +29,9 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(222,133,67, 0.9)",
     borderRadius: 20,
   },
-
   modalView: {
-    margin: 20,
-    borderRadius: 20,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    borderRadius: 15,
+    padding: 25,
+    backgroundColor: "orange",
   },
 });
