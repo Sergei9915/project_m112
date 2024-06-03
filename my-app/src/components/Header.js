@@ -21,7 +21,7 @@ const Header = ({ onChangeText }) => {
       style={styles.input}
       onChangeText={onChangeText}
       placeholder="Пошук..."
-      placeholderTextColor={"orange"}
+      placeholderTextColor={"#ff4500"}
     />
   );
 
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     borderRadius: 5,
-    borderColor: "orange",
+    borderColor: "#ff4500",
     height: 40,
     marginVertical: 12,
     padding: 10,
