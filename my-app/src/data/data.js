@@ -114,4 +114,52 @@ const DATA = [
   },
 ];
 
+export const nextData = [
+  {
+    id: 13,
+    image: require("../../assets/product/iPhone13Pro.jpg"),
+    title: "Дисплей Apple iPhone XS + тачскрин",
+    price: "1 500.00грн.",
+    isNew: false,
+    characteristic:
+      "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
+  },
+  {
+    id: 14,
+    image: require("../../assets/product/iPhone12ProMax.jpg"),
+    title: "Дисплей Apple iPhone XR + тачскрин",
+    price: "1 100.00грн.",
+    isNew: false,
+    characteristic:
+      "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
+  },
+  {
+    id: 15,
+    image: require("../../assets/product/iPhone12Mini.jpg"),
+    title: "Дисплей Apple iPhone X A1901 + тачскрин",
+    price: "1 000.00грн.",
+    isNew: false,
+    characteristic:
+      "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
+  },
+  {
+    id: 16,
+    image: require("../../assets/product/iPhone11Pro.jpg"),
+    title: "Дисплей Apple iPhone 8, iPhone SE 2020 + тачскрин",
+    price: "800.00грн.",
+    isNew: false,
+    characteristic:
+      "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
+  },
+  {
+    id: 17,
+    image: require("../../assets/product/iPhoneXsMax.jpg"),
+    title: "Дисплей Apple iPhone 8 Plus + тачскрин",
+    price: "500.00грн.",
+    isNew: false,
+    characteristic:
+      "оригінал REF - відновлений дисплей (заміна скла), колір: чорний",
+  },
+];
+
 export default DATA;
