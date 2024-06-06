@@ -1,9 +1,10 @@
-import React, { useCallback, useState } from "react";
-import { FlatList, View, ActivityIndicator } from "react-native";
+import React, { useCallback, useState, useEffect } from "react";
+import { FlatList, View, ActivityIndicator, Pressable } from "react-native";
 import ProductList from "../../components/product/ProductList";
 import Header from "../../components/Header";
 import DATA from "../../data/data";
 import { nextData } from "../../data/data";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
   const [data, setData] = useState([...DATA]);
@@ -11,8 +12,17 @@ const HomeScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
   const [additionalLoading, setAdditionalLoading] = useState(false);
+  const navigation = useNavigation();
 
-  const renderItems = useCallback(({ item }) => <ProductList item={item} />);
+  const renderItems = useCallback(({ item }) => {
+    return (
+      <Pressable
+        onPress={() => navigation.navigate("PhoneDetail", { item: item })}
+      >
+        <ProductList item={item} />
+      </Pressable>
+    );
+  }, []);
 
   const filterItem = data.filter((item) => {
     return item.title.toLowerCase().includes(searchItem.toLowerCase());
@@ -22,6 +32,16 @@ const HomeScreen = () => {
     return item.isNew ? item.isNew : null;
   });
 
+  useEffect(() => {
+    if (page > 1) {
+      setAdditionalLoading(true);
+      setTimeout(() => {
+        setData((prevState) => [...prevState, ...nextData]);
+        setAdditionalLoading(false);
+      }, 1500);
+    }
+  }, [page]);
+
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -29,19 +49,14 @@ const HomeScreen = () => {
       setRefreshing(false);
       setData(refreshFilter);
     }, 3000);
-  }, []);
+  }, [refreshFilter]);
 
   const onEndReached = useCallback(() => {
     if (page > 1) {
       return;
     }
     setPage((prevState) => prevState + 2);
-    setAdditionalLoading(true);
-    setTimeout(() => {
-      setData((prevState) => [...prevState, ...nextData]);
-      setAdditionalLoading(false);
-    }, 1500);
-  });
+  }, [page]);
 
   return (
     <View style={{ backgroundColor: "#fff", flex: 1 }}>
