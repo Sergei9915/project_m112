@@ -13,7 +13,7 @@ const screenWidth = Dimensions.get("window").width;
 
 const renderItems = ({ item }) => {
   return (
-    <View key={item.id}>
+    <View>
       <Image source={item.image} resizeMode="stretch" style={styles.img} />
       <Text numberOfLines={2} style={styles.text}>
         {item.text}
